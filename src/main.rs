@@ -1,7 +1,7 @@
 use std::{
+    fs::create_dir_all,
     io::{self, Stdout},
     path::Path,
-    fs::create_dir_all,
 };
 
 use directories::ProjectDirs;
@@ -42,7 +42,7 @@ fn main() -> Result<()> {
         }
     };
     create_dir_all(data_dir)?;
-    std::fs::write(data_dir.join("best"), bitcode::encode(&current_best)?)?;
+    std::fs::write(data_dir.join("best"), bitcode::encode(&current_best))?;
     restore_terminal(&mut terminal)?;
     println!("score: {score}");
     Ok(())

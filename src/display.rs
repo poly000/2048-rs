@@ -34,8 +34,8 @@ fn board_to_table(board: Board, prev_best: u64, new_best: u64) -> Table<'static>
         board
             .board
             .map(|row| Row::new(row.map(cell_to_widget)).height(CELL_HEIGHT)),
+            &[Constraint::Percentage(25); 4]
     )
-    .widths(&[Constraint::Percentage(25); 4])
     .column_spacing(0)
     .block(
         Block::default()

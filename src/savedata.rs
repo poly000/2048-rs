@@ -36,7 +36,7 @@ pub fn save(board: Board, data_dir: &Path) -> Result<()> {
                 .create(true)
                 .open(savefile_path)?;
 
-            savefile.write_all(&bitcode::encode(&board)?)?;
+            savefile.write_all(&bitcode::encode(&board))?;
             break Ok(());
         }
     }
